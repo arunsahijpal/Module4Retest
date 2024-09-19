@@ -1,0 +1,4 @@
+_core:
+  default_config_hash: lqgpqHWPl_Pw9TRyZ9tqgNM1-ah9HMX3fwfU49_Ihck
+admin_content_notification_email_subject: 'New Content @action'
+admin_content_notification_email_body: 'A new content has been @action on your site <br/> Submitted by : @user_who_posted <br/> New content link : @content_link'

@@ -16,9 +16,16 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/admin_content_notification": "^4.1",
+        "drupal/coder": "^8.3",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
+        "drupal/devel": "^5.3",
+        "drupal/field_permissions": "^1.4",
+        "drupal/multiple_registration": "^3.3",
+        "drupal/smtp": "^1.4",
+        "drupal/unique_field": "^2.1",
         "drush/drush": "^12.5"
     },
     "conflict": {
@@ -93,5 +100,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.10"
     }
 }

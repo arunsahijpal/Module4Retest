@@ -1,0 +1,5 @@
+name: 'news_email_notifier'
+type: module
+description: 'News Email'
+package: Custom
+core_version_requirement: ^10 || ^11

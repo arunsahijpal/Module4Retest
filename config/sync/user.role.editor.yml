@@ -1,0 +1,22 @@
+uuid: aa47787d-cdb4-484e-9f2f-a3e88bfaff2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.hashtags
+  module:
+    - field_permissions
+    - taxonomy
+id: editor
+label: Editor
+weight: 4
+is_admin: null
+permissions:
+  - 'create field_hashtags'
+  - 'create terms in hashtags'
+  - 'delete terms in hashtags'
+  - 'edit field_hashtags'
+  - 'edit own field_hashtags'
+  - 'edit terms in hashtags'
+  - 'view field_hashtags'
+  - 'view own field_hashtags'
