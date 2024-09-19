@@ -1,0 +1,5 @@
+name: 'new cleanup'
+type: module
+description: 'This module will delete all the news which are older than 6 months.'
+package: Custom
+core_version_requirement: ^10 || ^11

@@ -23,6 +23,7 @@
         "drupal/core-recommended": "^10.3",
         "drupal/devel": "^5.3",
         "drupal/field_permissions": "^1.4",
+        "drupal/menu_items_visibility": "^1.1",
         "drupal/multiple_registration": "^3.3",
         "drupal/smtp": "^1.4",
         "drupal/unique_field": "^2.1",

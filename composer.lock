@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35c12fdaaffa4753516d1343b231d5e1",
+    "content-hash": "6caf8bcbf808c9602746b4f9c69f482f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2046,6 +2046,57 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/field_permissions",
                 "issues": "https://www.drupal.org/project/issues/field_permissions"
+            }
+        },
+        {
+            "name": "drupal/menu_items_visibility",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/menu_items_visibility.git",
+                "reference": "1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_items_visibility-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "c224b8cfd9ef75cb09e4f288490a18c8d4b0fe99"
+            },
+            "require": {
+                "drupal/core": ">=8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.0",
+                    "datestamp": "1643798636",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rajeshreeputra Pravin Dhondiba Gaikwad",
+                    "homepage": "https://www.drupal.org/u/Rajeshreeputra",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Ganesh Suryawanshi",
+                    "homepage": "hhttps://www.drupal.org/u/ganeshsurya11",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module exposes configurable and extendable visibility settings for menu links.",
+            "homepage": "https://www.drupal.org/project/menu_items_visibility",
+            "support": {
+                "source": "https://git.drupalcode.org/project/menu_items_visibility",
+                "issues": "https://www.drupal.org/project/issues/menu_items_visibility"
             }
         },
         {

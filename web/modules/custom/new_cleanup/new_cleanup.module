@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * @file
+ * Contains news delete hooks.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Deletes news nodes older than 6 months and sends an email notification.
+ */
+function new_cleanup_cron() {
+  $current_time = \Drupal::time()->getRequestTime();
+  $six_months_ago = strtotime('-6 months', $current_time);
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  $query = $node_storage->getQuery()
+    ->condition('type', 'news')
+    ->condition('status', 1)
+    ->condition('created', $six_months_ago, '<')
+    ->accessCheck(FALSE);
+
+  $nids = $query->execute();
+  $deleted_news_count = 0;
+  $deleted_node_titles = [];
+
+  if ($nids) {
+    $nodes = $node_storage->loadMultiple($nids);
+
+    foreach ($nodes as $node) {
+      try {
+        $deleted_node_titles[] = $node->getTitle();
+        $node->delete();
+        $deleted_news_count++;
+      }
+      catch (\Exception $e) {
+      }
+    }
+
+    if ($deleted_news_count > 0) {
+      $mail_manager = \Drupal::service('plugin.manager.mail');
+      $module = 'new_cleanup';
+      $key = 'news_cleanup_notification';
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $node_titles_string = implode("\n", $deleted_node_titles);
+
+      $editor_uids = \Drupal::entityQuery('user')
+        ->condition('status', 1)
+        ->condition('roles', 'editor')
+        ->accessCheck(FALSE)
+        ->execute();
+
+      if ($editor_uids) {
+        $editors = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($editor_uids);
+        $valid_emails = array_filter(array_map(function ($editor) {
+          return filter_var($editor->getEmail(), FILTER_VALIDATE_EMAIL) ? $editor->getEmail() : NULL;
+        }, $editors));
+
+        if ($valid_emails) {
+          $params = [
+            'subject' => t('News Cleanup Notification'),
+            'message' => t('The cleanup process has deleted @count old news items.', ['@count' => $deleted_news_count]) . "\n" . t('Deleted News Titles:') . "\n" . $node_titles_string,
+          ];
+
+          foreach ($valid_emails as $to) {
+            $mail_manager->mail($module, $key, $to, $langcode, $params);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * Defines the email message to be sent.
+ */
+function new_cleanup_mail($key, &$message, $params) {
+  if ($key === 'news_cleanup_notification') {
+    $message['subject'] = $params['subject'];
+    $message['body'][] = $params['message'];
+  }
+}

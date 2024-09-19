@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_category
     - field.field.user.user.field_category_head
+    - field.field.user.user.field_description
     - field.field.user.user.field_editor_in_charge
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -39,6 +40,14 @@ content:
     weight: 9
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_description:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_editor_in_charge:
     type: options_select

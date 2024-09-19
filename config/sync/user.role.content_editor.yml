@@ -12,7 +12,6 @@ dependencies:
     - node
     - system
     - taxonomy
-    - toolbar
 _core:
   default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
 id: content_editor
@@ -23,7 +22,6 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
-  - 'access toolbar'
   - 'create news content'
   - 'create terms in tags'
   - 'delete any news content'

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_category
     - field.field.user.user.field_category_head
+    - field.field.user.user.field_description
     - field.field.user.user.field_editor_in_charge
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -33,5 +34,6 @@ content:
 hidden:
   field_category: true
   field_category_head: true
+  field_description: true
   field_editor_in_charge: true
   member_for: true

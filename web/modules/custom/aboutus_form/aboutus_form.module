@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * This file contains the hooks required.
+ */
+
+/**
+ * Implements theme().
+ *
+ * Defines the theme hook for the custom form module.
+ *
+ * @param array $existing
+ *   An array of existing theme hooks.
+ * @param string $type
+ *   The type of the theme hook (e.g., 'theme').
+ * @param string $theme
+ *   The active theme.
+ * @param string $path
+ *   The path to the module or theme.
+ *
+ * @return array
+ *   An associative array of theme hook definitions.
+ */
+function aboutus_form_theme(array $existing, $type, $theme, $path) {
+  return [
+    'custom_form_data' => [
+      'variables' => [
+        'content' => [],
+        'anchorReference' => '',
+        'description' => '',
+        'latestNews' => [],
+      ],
+      'template' => 'custom-form-data',
+      'preprocess functions' => [
+        'custom_form_preprocess_custom_form_data',
+      ],
+    ],
+  ];
+}

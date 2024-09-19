@@ -1,0 +1,5 @@
+name: 'About Us Form New'
+type: module
+description: 'About Us Form'
+package: Custom
+core_version_requirement: ^10 || ^11
