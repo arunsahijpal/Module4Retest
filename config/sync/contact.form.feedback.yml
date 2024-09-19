@@ -1,0 +1,14 @@
+uuid: 6ce23ede-bd6f-461a-ba01-b70d4c0c7d9a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - arunsahijpal111@gmail.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''
