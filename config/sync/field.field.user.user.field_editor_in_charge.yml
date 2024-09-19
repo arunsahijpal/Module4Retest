@@ -1,0 +1,39 @@
+uuid: cdf15d70-e87d-4851-9a55-960e8e792c24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_editor_in_charge
+  module:
+    - multiple_registration
+    - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form_required:
+      content_editor: content_editor
+      authenticated: 0
+    user_additional_register_form:
+      content_editor: content_editor
+      authenticated: 0
+id: user.user.field_editor_in_charge
+field_name: field_editor_in_charge
+entity_type: user
+bundle: user
+label: 'Editor in charge'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

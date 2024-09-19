@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * This file cotains the Hooks for the module.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Function node_insert.
+ *
+ * @param Drupal\node\Entity\Node $node
+ *   Node(news).
+ *
+ * @return void
+ *   Returns void.
+ */
+function news_email_notifier_node_insert(Node $node) {
+  if ($node->getType() === 'news') {
+    _news_email_notifier_send_email($node);
+  }
+}
+
+/**
+ * Function node_update.
+ *
+ * @param Drupal\node\Entity\Node $node
+ *   Node(news).
+ *
+ * @return void
+ *   Returns void.
+ */
+function news_email_notifier_node_update(Node $node) {
+  if ($node->getType() === 'news') {
+    _news_email_notifier_send_email($node);
+  }
+}
+
+/**
+ * Function send_insert to send mail.
+ *
+ * @param Drupal\node\Entity\Node $node
+ *   Node(news).
+ *
+ * @return void
+ *   Returns void.
+ */
+function _news_email_notifier_send_email(Node $node) {
+  $author = $node->getOwner();
+  if ($author->hasField('field_editor_in_charge') && !$author->get('field_editor_in_charge')->isEmpty()) {
+    $editor_in_charge = $author->get('field_editor_in_charge')->entity;
+
+    if ($editor_in_charge) {
+      $editor_email = $editor_in_charge->getEmail();
+      $news_title = $node->getTitle();
+      $operation = $node->isNew() ? 'created' : 'updated';
+      $params = [
+        'title' => $news_title,
+        'operation' => $operation,
+      ];
+      \Drupal::service('plugin.manager.mail')->mail('news_email_notifier', 'news_notification', $editor_email, \Drupal::currentUser()->getPreferredLangcode(), $params);
+    }
+  }
+}
+
+/**
+ * Function mail to send mail.
+ *
+ * @param [type] $key
+ *   Key.
+ * @param [type] $message
+ *   Meassage sent.
+ * @param [type] $params
+ *   Params.
+ *
+ * @return void
+ *   Returns void.
+ */
+function news_email_notifier_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'news_notification':
+      $message['subject'] = t('News article @operation: @title', [
+        '@operation' => $params['operation'],
+        '@title' => $params['title'],
+      ]);
+      $message['body'][] = t('A news article titled "@title" has been @operation.', [
+        '@title' => $params['title'],
+        '@operation' => $params['operation'],
+      ]);
+      break;
+  }
+}

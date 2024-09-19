@@ -1,0 +1,36 @@
+uuid: 7782b7e1-ea05-4a1b-a4ec-f7db926c4b9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contextual
+    - file
+    - node
+    - system
+    - taxonomy
+_core:
+  default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
+id: content_editor
+label: 'News Anchor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'create news content'
+  - 'create terms in tags'
+  - 'delete any news content'
+  - 'delete own files'
+  - 'delete own news content'
+  - 'edit any news content'
+  - 'edit own comments'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

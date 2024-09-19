@@ -1,0 +1,35 @@
+content_editor:
+  content_editor:
+    path: /anchor-registration
+    url: /user/register/content_editor
+    redirect_path: /
+    hidden: 0
+    form_mode_register: register
+    form_mode_edit: default
+  path: /anchor-registration
+  url: /user/register/content_editor
+  redirect_path: /
+  hidden: 0
+  form_mode_register: register
+  form_mode_edit: default
+editor:
+  content_editor:
+    content_editor:
+      path: /anchor-registration
+      url: /user/register/content_editor
+      redirect_path: /
+      hidden: 0
+      form_mode_register: register
+      form_mode_edit: default
+    path: /anchor-registration
+    url: /user/register/content_editor
+    redirect_path: /
+    hidden: 0
+    form_mode_register: register
+    form_mode_edit: default
+  path: /editor-registration
+  url: /user/register/editor
+  redirect_path: /
+  hidden: 0
+  form_mode_register: register
+  form_mode_edit: default

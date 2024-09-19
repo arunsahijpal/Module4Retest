@@ -1,0 +1,5 @@
+name: 'editor_category_validation'
+type: module
+description: 'Editor Category'
+package: Custom
+core_version_requirement: ^10 || ^11
